@@ -47,4 +47,28 @@ $(() => {
       }
     )
   });
+  $('#starshipForm').on('submit', (event) => {
+    event.preventDefault();
+
+    const usersInput = $('input[type="text"]').val();
+
+    $.ajax({
+      url:'https://swapi.co/api/starships/?search=' + usersInput,
+    }).then(
+      (data) => {
+        console.log(data);
+        const $starshipReturnData = data.results[0];
+        console.log($starshipReturnData);
+        $('#starshipName').text($starshipReturnData.name);
+        $('#crew').text($starshipReturnData.crew);
+        $('#length').text($starshipReturnData.length);
+        $('#passengers').text($starshipReturnData.passengers);
+        $('#cargocapacity').text($starshipReturnData.cargo_capacity);
+        $('#cost').text($starshipReturnData.cost_in_credits);
+        },
+      (error) => {
+        console.log('Not working, mate!');
+      }
+    )
+  });
 });
