@@ -1,5 +1,5 @@
 $(() => {
-  $('form').on('submit', (event) => {
+  $('#characterForm').on('submit', (event) => {
 
     event.preventDefault();
 
@@ -23,5 +23,28 @@ $(() => {
         console.log('Not working, mate!');
       }
     )
-  })
+  });
+  $('#planetForm').on('submit', (event) => {
+    event.preventDefault();
+
+    const usersInput = $('input[type="text"]').val();
+
+    $.ajax({
+      url:'https://swapi.co/api/planets/?search=' + usersInput,
+    }).then(
+      (data) => {
+        console.log(data);
+        const $planetReturnData = data.results[0];
+        console.log($planetReturnData);
+        $('#name').text($planetReturnData.name);
+        $('#climate').text($planetReturnData.climate);
+        $('#diameter').text($planetReturnData.diameter);
+        $('#population').text($planetReturnData.population);
+        $('#gravity').text($planetReturnData.gravity);
+        },
+      (error) => {
+        console.log('Not working, mate!');
+      }
+    )
+  });
 });
