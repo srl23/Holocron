@@ -1,4 +1,7 @@
 $(() => {
+  $('#vehicle-btn').on('click', () => {
+
+  });
   $('#characterForm').on('submit', (event) => {
 
     event.preventDefault();
@@ -66,6 +69,32 @@ $(() => {
         $('#cargocapacity').text($starshipReturnData.cargo_capacity);
         $('#cost').text($starshipReturnData.cost_in_credits);
         },
+      (error) => {
+        console.log('Not working, mate!');
+      }
+    )
+  });
+  $('#vehicles').on('submit', (event) => {
+    event.preventDefault();
+
+    const usersInput = $('input[type="text"]').val();
+
+    $.ajax({
+      url:'https://swapi.co/api/vehicles/?search=' + usersInput,
+    }).then(
+      (data) => {
+        console.log(data);
+        const $vehicleReturnData = data.results[0];
+        $('#vehicle-name').text($vehicleReturnData.name);
+        $('#model').text($vehicleReturnData.model);
+        $('#manufacturer').text($vehicleReturnData.manufacturer);
+        $('#vehicle-cost').text($vehicleReturnData.cost_in_credits);
+        $('#vehicle-length').text($vehicleReturnData.length);
+        $('#vehicle-crew').text($vehicleReturnData.crew);
+        $('#vehicle-passengers').text($vehicleReturnData.passengers);
+        $('#vehicle-cargo-capacity').text($vehicleReturnData.cargo_capacity);
+        $('#vehicle-class').text($vehicleReturnData.vehicle_class);
+      },
       (error) => {
         console.log('Not working, mate!');
       }
