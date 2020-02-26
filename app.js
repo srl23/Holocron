@@ -86,8 +86,8 @@ $(() => {
         console.log(data);
         const $vehicleReturnData = data.results[0];
         $('#vehicle-name').text($vehicleReturnData.name);
-        $('#model').text($vehicleReturnData.model);
-        $('#manufacturer').text($vehicleReturnData.manufacturer);
+        $('#vehicle-model').text($vehicleReturnData.model);
+        $('#vehicle-manufacturer').text($vehicleReturnData.manufacturer);
         $('#vehicle-cost').text($vehicleReturnData.cost_in_credits);
         $('#vehicle-length').text($vehicleReturnData.length);
         $('#vehicle-crew').text($vehicleReturnData.crew);
