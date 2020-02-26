@@ -1,6 +1,18 @@
 $(() => {
-  $('#vehicle-btn').on('click', () => {
+  $('#character').hide();
+  $('#planet').hide();
+  $('#starship').hide();
+  $('#species').hide();
+  $('#vehicle').hide();
+  $('#film').hide();
 
+  $('#vehicle-btn').on('click', () => {
+    $('#character').hide();
+    $('#planet').hide();
+    $('#starship').hide();
+    $('#species').hide();
+    $('#film').hide();
+    $('#vehicle').show();
   });
   $('#characterForm').on('submit', (event) => {
 
