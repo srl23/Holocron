@@ -3,6 +3,11 @@ body {
   color: yellow;
 }
 
+dd, dt {
+  display: flex;
+  text-align: center;
+}
+
 h1 {
   color: yellow;
   text-align: center;
@@ -10,11 +15,16 @@ h1 {
 
 h3, h4 {
   text-align: center;
-  text-align:center;
+}
+
+nav {
+  display: flex;
+  justify-content: space-around;
 }
 
 .carousel-container {
   width: 70%;
+  height: 70%;
   display: flex;
   justify-content: space-around;
 }
@@ -27,17 +37,18 @@ h3, h4 {
 
 .container > img {
   width: 70%;
+  height: 70%;
 }
 
 .carousel-images {
-  width: 80%;
-  padding: 40px;
+  max-width: 50%;
+  max-height: 50%;
   box-sizing: border-box;
 }
 
 .carousel-images img {
   width: 80%;
-  border-radius: 10px;
+  height: 80%;
   display: none;
 }
 
@@ -50,7 +61,6 @@ h3, h4 {
   background: yellow;
   color: black;
   padding: 10px;
-  border-radius: 50%;
   text-align: center;
 }
 

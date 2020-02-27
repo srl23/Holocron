@@ -2,6 +2,32 @@ $(() => {
   let currentImgIndex = 0;
   let highestIndex = $('.carousel-images').children().length-1;
 
+  $('.next').on('click', () => {
+    const $img = $('.carousel-images').children().eq(currentImgIndex);
+    $img.css('display', 'none');
+    currentImgIndex++;
+    if (currentImgIndex > highestIndex){
+      currentImgIndex = 0;
+    }
+    const $img2 = $('.carousel-images').children().eq(currentImgIndex);
+    $img2.css('display', 'block');
+  });
+
+  $('.prev').on('click', () => {
+    const $img = $('.carousel-images').children().eq(currentImgIndex);
+
+    $img.css('display', 'none');
+
+    currentImgIndex--;
+
+    if (currentImgIndex < 0){
+      currentImgIndex = highestIndex;
+    }
+
+    const $img2 = $('.carousel-images').children().eq(currentImgIndex);
+    $img2.css('display', 'block');
+    });
+
   $('#character').hide();
   $('#planet').hide();
   $('#starship').hide();
@@ -10,7 +36,7 @@ $(() => {
   $('#film').hide();
 
   $('#character-btn').on('click', () => {
-    $('#character').show();
+    $('#character').toggle();
     $('#planet').hide();
     $('#starship').hide();
     $('#species').hide();
@@ -20,7 +46,7 @@ $(() => {
 
   $('#planet-btn').on('click', () => {
     $('#character').hide();
-    $('#planet').show();
+    $('#planet').toggle();
     $('#starship').hide();
     $('#species').hide();
     $('#film').hide();
@@ -30,7 +56,7 @@ $(() => {
   $('#starship-btn').on('click', () => {
     $('#character').hide();
     $('#planet').hide();
-    $('#starship').show();
+    $('#starship').toggle();
     $('#species').hide();
     $('#film').hide();
     $('#vehicle').hide();
@@ -40,7 +66,7 @@ $(() => {
     $('#character').hide();
     $('#planet').hide();
     $('#starship').hide();
-    $('#species').show();
+    $('#species').toggle();
     $('#film').hide();
     $('#vehicle').hide();
   })
@@ -50,7 +76,7 @@ $(() => {
     $('#planet').hide();
     $('#starship').hide();
     $('#species').hide();
-    $('#film').show();
+    $('#film').toggle();
     $('#vehicle').hide();
   })
 
@@ -60,7 +86,7 @@ $(() => {
     $('#starship').hide();
     $('#species').hide();
     $('#film').hide();
-    $('#vehicle').show();
+    $('#vehicle').toggle();
   });
   $('#characterForm').on('submit', (event) => {
 
