@@ -1,4 +1,7 @@
 $(() => {
+  let currentImgIndex = 0;
+  let highestIndex = $('.carousel-images').children().length-1;
+
   $('#character').hide();
   $('#planet').hide();
   $('#starship').hide();
