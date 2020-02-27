@@ -102,9 +102,9 @@ $(() => {
         const $characterReturnData = data.results[0];
         console.log($characterReturnData);
         $('#character-name').text($characterReturnData.name);
-        $('#hair_color').text($characterReturnData.hair_color);
-        $('#eye_color').text($characterReturnData.eye_color);
-        $('#birth_year').text($characterReturnData.birth_year);
+        $('#hair-color').text($characterReturnData.hair_color);
+        $('#eye-color').text($characterReturnData.eye_color);
+        $('#birth-year').text($characterReturnData.birth_year);
         $('#character-height').text($characterReturnData.height);
         $('#character-weight').text($characterReturnData.mass);
       },

@@ -1,11 +1,7 @@
 body {
   background-color: rgb(0, 0, 0);
   color: yellow;
-}
-
-dd, dt {
-  display: flex;
-  text-align: center;
+  font-size: 12px;
 }
 
 h1 {
@@ -23,8 +19,8 @@ nav {
 }
 
 .carousel-container {
-  width: 70%;
-  height: 70%;
+  width: 300px;
+  height: 300px;
   display: flex;
   justify-content: space-around;
 }
@@ -35,20 +31,9 @@ nav {
   align-items: center;
 }
 
-.container > img {
-  width: 70%;
-  height: 70%;
-}
-
-.carousel-images {
-  max-width: 50%;
-  max-height: 50%;
-  box-sizing: border-box;
-}
-
 .carousel-images img {
-  width: 80%;
-  height: 80%;
+  width: 400px;
+  height: 300px;
   display: none;
 }
 
