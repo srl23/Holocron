@@ -1,12 +1,12 @@
 $(() => {
   let currentImgIndex = 0;
-  let highestIndex = $('.carousel-images').children().length-1;
+  let maxIndex = $('.carousel-images').children().length-1;
 
   $('.next').on('click', () => {
     const $img = $('.carousel-images').children().eq(currentImgIndex);
     $img.css('display', 'none');
     currentImgIndex++;
-    if (currentImgIndex > highestIndex){
+    if (currentImgIndex > maxIndex){
       currentImgIndex = 0;
     }
     const $img2 = $('.carousel-images').children().eq(currentImgIndex);
@@ -21,12 +21,12 @@ $(() => {
     currentImgIndex--;
 
     if (currentImgIndex < 0){
-      currentImgIndex = highestIndex;
+      currentImgIndex = maxIndex;
     }
 
     const $img2 = $('.carousel-images').children().eq(currentImgIndex);
     $img2.css('display', 'block');
-    });
+  });
 
   $('#character').hide();
   $('#planet').hide();
@@ -42,7 +42,7 @@ $(() => {
     $('#species').hide();
     $('#film').hide();
     $('#vehicle').hide();
-  })
+  });
 
   $('#planet-btn').on('click', () => {
     $('#character').hide();
@@ -51,7 +51,7 @@ $(() => {
     $('#species').hide();
     $('#film').hide();
     $('#vehicle').hide();
-  })
+  });
 
   $('#starship-btn').on('click', () => {
     $('#character').hide();
@@ -60,7 +60,7 @@ $(() => {
     $('#species').hide();
     $('#film').hide();
     $('#vehicle').hide();
-  })
+  });
 
   $('#species-btn').on('click', () => {
     $('#character').hide();
@@ -69,7 +69,7 @@ $(() => {
     $('#species').toggle();
     $('#film').hide();
     $('#vehicle').hide();
-  })
+  });
 
   $('#film-btn').on('click', () => {
     $('#character').hide();
@@ -88,6 +88,7 @@ $(() => {
     $('#film').hide();
     $('#vehicle').toggle();
   });
+
   $('#characterForm').on('submit', (event) => {
 
     event.preventDefault();
@@ -113,6 +114,7 @@ $(() => {
       }
     )
   });
+
   $('#planetForm').on('submit', (event) => {
     event.preventDefault();
 
@@ -138,6 +140,7 @@ $(() => {
       }
     )
   });
+
   $('#starshipForm').on('submit', (event) => {
     event.preventDefault();
 
@@ -162,6 +165,7 @@ $(() => {
       }
     )
   });
+
   $('#speciesForm').on('submit', (event) => {
     event.preventDefault();
 
@@ -188,6 +192,7 @@ $(() => {
       }
     )
   });
+
   $('#filmForm').on('submit', (event) => {
     event.preventDefault();
 
@@ -210,6 +215,7 @@ $(() => {
       }
     )
   });
+
   $('#vehicleForm').on('submit', (event) => {
     event.preventDefault();
 
