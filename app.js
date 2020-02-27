@@ -6,6 +6,51 @@ $(() => {
   $('#vehicle').hide();
   $('#film').hide();
 
+  $('#character-btn').on('click', () => {
+    $('#character').show();
+    $('#planet').hide();
+    $('#starship').hide();
+    $('#species').hide();
+    $('#film').hide();
+    $('#vehicle').hide();
+  })
+
+  $('#planet-btn').on('click', () => {
+    $('#character').hide();
+    $('#planet').show();
+    $('#starship').hide();
+    $('#species').hide();
+    $('#film').hide();
+    $('#vehicle').hide();
+  })
+
+  $('#starship-btn').on('click', () => {
+    $('#character').hide();
+    $('#planet').hide();
+    $('#starship').show();
+    $('#species').hide();
+    $('#film').hide();
+    $('#vehicle').hide();
+  })
+
+  $('#species-btn').on('click', () => {
+    $('#character').hide();
+    $('#planet').hide();
+    $('#starship').hide();
+    $('#species').show();
+    $('#film').hide();
+    $('#vehicle').hide();
+  })
+
+  $('#film-btn').on('click', () => {
+    $('#character').hide();
+    $('#planet').hide();
+    $('#starship').hide();
+    $('#species').hide();
+    $('#film').show();
+    $('#vehicle').hide();
+  })
+
   $('#vehicle-btn').on('click', () => {
     $('#character').hide();
     $('#planet').hide();
@@ -18,7 +63,7 @@ $(() => {
 
     event.preventDefault();
 
-    const usersInput = $('input[type="text"]').val();
+    const usersInput = $('#characterForm input[type="text"]').val();
 
     $.ajax({
       url:'https://swapi.co/api/people/?search=' + usersInput,
@@ -27,12 +72,12 @@ $(() => {
         console.log(data);
         const $characterReturnData = data.results[0];
         console.log($characterReturnData);
-        $('#name').text($characterReturnData.name);
+        $('#character-name').text($characterReturnData.name);
         $('#hair_color').text($characterReturnData.hair_color);
         $('#eye_color').text($characterReturnData.eye_color);
         $('#birth_year').text($characterReturnData.birth_year);
-        $('#height').text($characterReturnData.height);
-        $('#weight').text($characterReturnData.mass);
+        $('#character-height').text($characterReturnData.height);
+        $('#character-weight').text($characterReturnData.mass);
       },
       (error) => {
         console.log('Not working, mate!');
@@ -42,18 +87,20 @@ $(() => {
   $('#planetForm').on('submit', (event) => {
     event.preventDefault();
 
-    const usersInput = $('input[type="text"]').val();
+    const usersInput = $('#planetForm input[type="text"]').val();
 
     $.ajax({
       url:'https://swapi.co/api/planets/?search=' + usersInput,
     }).then(
       (data) => {
+        console.log($('input[type="text"]'));
+        console.log(usersInput);
         console.log(data);
         const $planetReturnData = data.results[0];
         console.log($planetReturnData);
-        $('#name').text($planetReturnData.name);
+        $('#planet-name').text($planetReturnData.name);
         $('#climate').text($planetReturnData.climate);
-        $('#diameter').text($planetReturnData.diameter);
+        $('#planet-diameter').text($planetReturnData.diameter);
         $('#population').text($planetReturnData.population);
         $('#gravity').text($planetReturnData.gravity);
         },
@@ -65,7 +112,7 @@ $(() => {
   $('#starshipForm').on('submit', (event) => {
     event.preventDefault();
 
-    const usersInput = $('input[type="text"]').val();
+    const usersInput = $('#starshipForm input[type="text"]').val();
 
     $.ajax({
       url:'https://swapi.co/api/starships/?search=' + usersInput,
@@ -86,10 +133,58 @@ $(() => {
       }
     )
   });
-  $('#vehicles').on('submit', (event) => {
+  $('#speciesForm').on('submit', (event) => {
     event.preventDefault();
 
-    const usersInput = $('input[type="text"]').val();
+    const usersInput = $('#speciesForm input[type="text"]').val();
+
+    $.ajax({
+      url:'https://swapi.co/api/species/?search=' + usersInput,
+    }).then(
+      (data) => {
+        console.log(data);
+        const $speciesReturnData = data.results[0];
+        $('#species-name').text($speciesReturnData.name);
+        $('#classification').text($speciesReturnData.classification);
+        $('#designation').text($speciesReturnData.designation);
+        $('#average-height').text($speciesReturnData.average_height);
+        $('#skin-colors').text($speciesReturnData.skin_colors);
+        $('#hair-colors').text($speciesReturnData.hair_colors);
+        $('#eye-colors').text($speciesReturnData.eye_colors);
+        $('#average-lifespan').text($speciesReturnData.average_lifespan);
+        $('#language').text($speciesReturnData.language);
+        },
+      (error) => {
+        console.log('Not working, mate!');
+      }
+    )
+  });
+  $('#filmForm').on('submit', (event) => {
+    event.preventDefault();
+
+    const usersInput = $('#filmForm input[type="text"]').val();
+
+    $.ajax({
+      url:'https://swapi.co/api/films/?search=' + usersInput,
+    }).then(
+      (data) => {
+        console.log(data);
+        const $filmReturnData = data.results[0];
+        $('#film-title').text($filmReturnData.title);
+        $('#episode-number').text($filmReturnData.episode_id);
+        $('#director').text($filmReturnData.director);
+        $('#producer').text($filmReturnData.producer);
+        $('#release-date').text($filmReturnData.release_date);
+        },
+      (error) => {
+        console.log('Not working, mate!');
+      }
+    )
+  });
+  $('#vehicleForm').on('submit', (event) => {
+    event.preventDefault();
+
+    const usersInput = $('#vehicleForm input[type="text"]').val();
 
     $.ajax({
       url:'https://swapi.co/api/vehicles/?search=' + usersInput,

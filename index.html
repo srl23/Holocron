@@ -8,11 +8,21 @@
       src="http://code.jquery.com/jquery-3.4.1.js"
       integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
       crossorigin="anonymous"></script>
-    <title>Holocron: A Star Wars Film Lookup Tool</title>
+    <title>Holocron: A Star Wars Look-up Resource</title>
   </head>
   <body>
-  <h1>Holocron: A Star Wars Film Lookup Tool!</h1>
+  <h1>Holocron: A Star Wars Look-up Resource!</h1>
+  <h3>Holocron is a tool that the user can use to look up characters, planets, and more from within the first seven Star Wars films!</h3>
+  <h4>Click a button for which category you would like to look-up to begin your search!</h4>
   <!-- the current plan is to set each form and set of results to a button so users can look up what they want to and only show results and prompts they are interested in finding -->
+  <nav>
+    <button id="character-btn">Characters</button>
+    <button id="planet-btn">Planets</button>
+    <button id="starship-btn">Starships</button>
+    <button id="species-btn">Species</button>
+    <button id="film-btn">Films</button>
+    <button id="vehicle-btn">Vehicles</button>
+  </nav>
   <div id="character">
     <form id="characterForm">
       <input type="text" placeholder="character's name"/>
@@ -20,7 +30,7 @@
     </form>
     <dl>
       <dt>Name: </dt>
-      <dd id="name"></dd>
+      <dd id="character-name"></dd>
       <dt>Hair Color: </dt>
       <dd id="hair_color"></dd>
       <dt>Eye Color: </dt>
@@ -28,9 +38,9 @@
       <dt>Birth Year: </dt>
       <dd id="birth_year"></dd>
       <dt>Height: <dt>
-      <dd id="height"></dd>
+      <dd id="character-height"></dd>
       <dt>Weight: </dt>
-      <dd id="weight"></dt>
+      <dd id="character-weight"></dt>
     </dl>
   </div>
   <div id="planet">
@@ -40,11 +50,11 @@
     </form>
     <dl>
       <dt>Planet Name: </dt>
-      <dd id="name"></dd>
+      <dd id="planet-name"></dd>
       <dt>Climate: </dt>
       <dd id="climate"></dd>
       <dt>Diameter: </dt>
-      <dd id="diameter"></dd>
+      <dd id="planet-diameter"></dd>
       <dt>Population: </dt>
       <dd id="population"></dd>
       <dt>Gravity: <dt>
@@ -71,7 +81,50 @@
       <dd id="passengers"></dd>
     </dl>
   </div>
-  <button id="vehicle-btn">Vehicles</button>
+  <div id="species">
+    <form id="speciesForm">
+      <input type="text" placeholder="species name"/>
+      <input type="submit" value="Get info!"/>
+    </form>
+    <dl>
+      <dt>Name: </dt>
+      <dd id="species-name"></dd>
+      <dt>Classification: </dt>
+      <dd id="classification"></dd>
+      <dt>Designation: </dt>
+      <dd id="designation"></dd>
+      <dt>Average Height: </dt>
+      <dd id="average-height"></dd>
+      <dt>Skin Colors: </dt>
+      <dd id="skin_colors"></dd>
+      <dt>Hair Colors: </dt>
+      <dd id="hair_colors"></dd>
+      <dt>Eye Colors: </dt>
+      <dd id="eye_colors"></dd>
+      <dt>Average Lifespan: </dt>
+      <dd id="average_lifespan"></dd>
+      <dt>Language: </dt>
+      <dd id="language"></dd>
+    </dl>
+  </div>
+  <div id="film">
+    <form id="filmForm">
+      <input type="text" placeholder="Film name"/>
+      <input type="submit" value="Get info!"/>
+    </form>
+    <dl>
+      <dt>Title: </dt>
+      <dd id="film-title"></dd>
+      <dt>Episode Number: </dt>
+      <dd id="episode-number"></dd>
+      <dt>Director: </dt>
+      <dd id="director"></dd>
+      <dt>Producer(s): </dt>
+      <dd id="producer"></dd>
+      <dt>Release Date: </dt>
+      <dd id="release-date"></dd>
+    </dl>
+  </div>
   <div id="vehicle">
     <form id="vehicleForm">
       <input type="text" placeholder="vehicle's name"/>
